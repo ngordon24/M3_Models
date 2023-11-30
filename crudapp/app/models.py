@@ -11,8 +11,8 @@ class Item(models.Model):
 
 # create item
 def make_item(title):
-    Item = Item(title=title)
-    Item.save()
+    item = Item(title=title)
+    item.save()
 
 
 # read all items
@@ -32,9 +32,9 @@ def read_item_by_title(title):
 
 # updates item name
 def update_item(old_title, new_title):
-    Item = Item.objects.get(title=old_title)
-    Item.title = new_title
-    Item.save()
+    item = Item.objects.get(title=old_title)
+    item.title = new_title
+    item.save()
 
 
 # deletes item

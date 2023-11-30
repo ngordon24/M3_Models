@@ -10,7 +10,6 @@ from app import models
 class TestItem_test_cases(TestCase):
     def test_item_creation(self):
         item1 = models.make_item("Vase")
-        item1.save()
         self.assertEqual(Item.objects.count(), 1)
 
     def test_read_all_items(self):
@@ -32,10 +31,9 @@ class TestItem_test_cases(TestCase):
     def test_update_item(self):
         Item1 = Item.objects.create(title="Vase")
         Item1.save()
-        models.update_item(Item.title, "Vase: Blue")
-        Item1.save()
+        models.update_item(Item1.title, "Vase: Blue")
 
-        self.assertEqual(Item1.title, "Vase: Blue")
+        self.assertEqual(Item.objects.all()[0].title, "Vase: Blue")
 
     def test_read_by_title(self):
         Item1 = Item.objects.create(title="Vase")
