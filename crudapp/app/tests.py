@@ -31,7 +31,7 @@ class TestItem_test_cases(TestCase):
     def test_update_item(self):
         Item1 = Item.objects.create(title="Vase")
         Item1.save()
-        models.update_item(Item1.title, "Vase: Blue")
+        models.update_item(Item1.title, "Vase: Black")
 
         self.assertEqual(Item.objects.all()[0].title, "Vase: Blue")
 
